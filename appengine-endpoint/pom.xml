@@ -6,7 +6,7 @@
     <version>1.0</version>
 
     <groupId>co.afrolabs.truevote</groupId>
-    <artifactId>appengine-endpoint</artifactId>
+    <artifactId>truevote-endpoint</artifactId>
 
     <properties>
         <appengine.app.version>1</appengine.app.version>
