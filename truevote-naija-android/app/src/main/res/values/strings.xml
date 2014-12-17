@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">True Vote Naija</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="gej">New Text</string>
+    <string name="gejDescription">gej-image</string>
+    <string name="gejFullName">GOODLUCK EBELE JONATHAN</string>
+    <string name="gejParty">PARTY: PDP</string>
+    <string name="main_no_items">No items</string>
+    <string name="tap2vote">tap to vote</string>
+    <string name="resultsBtnTxt">View Result</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+
+</resources>
