@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout   xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    android:background="#ffffffff"
-    android:weightSum="1">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffffff">
+
 
     <ImageView
         android:layout_width="wrap_content"
@@ -19,33 +19,46 @@
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:text="@string/tap2vote"
         android:id="@+id/textView"
-        android:gravity="center_vertical|center_horizontal" />
+        android:gravity="center_vertical|center_horizontal"
+        android:textColor="#ff00893b"
+        android:textStyle="italic" />
 
-    <RadioGroup
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content">
-    <ListView
-        android:layout_width="wrap_content"
-        android:layout_height="276dp"
-        android:id="@+id/listView" />
-    </RadioGroup>
-
-    <LinearLayout
-        android:orientation="horizontal"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="fill_parent"
+        android:id="@+id/scrollView"
+        android:background="#ffffffff">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#ffffffff">
 
-        <Button
-            style="?android:attr/buttonStyleSmall"
-            android:layout_width="0dp"
-            android:layout_height="80dp"
-            android:text="@string/resultsBtnTxt"
-            android:id="@+id/button2"
-            android:layout_weight="0.18"
-            android:background="#ff00893b"
-            android:textColor="#ffffffff" />
+            <ListView
+                android:layout_width="fill_parent"
+                android:layout_height="390dp"
+                android:id="@+id/listView" />
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <Button
+                    style="?android:attr/buttonStyleSmall"
+                    android:layout_width="0dp"
+                    android:layout_height="75dp"
+                    android:text="@string/resultsBtnTxt"
+                    android:id="@+id/button2"
+                    android:layout_weight="0.18"
+                    android:background="#ff00893b"
+                    android:textColor="#ffffffff"
+                    android:layout_gravity="bottom"
+                    android:textSize="@dimen/abc_action_button_min_width_overflow_material"
+                    android:textStyle="bold"
+                    android:typeface="serif" />
+            </LinearLayout>
         </LinearLayout>
 
-
-
+    </ScrollView>
 </LinearLayout>

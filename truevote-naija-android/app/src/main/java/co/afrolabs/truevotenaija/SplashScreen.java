@@ -1,10 +1,13 @@
 package co.afrolabs.truevotenaija;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.telephony.TelephonyManager;
 import android.util.Log;
+import android.webkit.WebView;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -17,12 +20,14 @@ import utils.JsonParser;
 public class SplashScreen extends Activity {
 
     String now_playing, earned;
+    TelephonyManager telephonyManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.splashscreen);
-
+        WebView wv = (WebView) findViewById(R.id.webView);
+        wv.loadUrl("file:///android_asset/loading.gif");
         /**
          * Showing splashscreen while making network calls to download necessary
          * data before launching the app Will use AsyncTask to make http call
@@ -55,9 +60,14 @@ public class SplashScreen extends Activity {
              * 4. Sending device information to server
              * 5. etc.,
              */
+            telephonyManager = (TelephonyManager) getSystemService(Context.TELEPHONY_SERVICE);
+            final String number = telephonyManager.getDeviceId();
             JsonParser jsonParser = new JsonParser();
-            String json = jsonParser
-                    .getJSONFromUrl("http://api.androidhive.info/game/game_stats.json").toString();
+            JSONObject jsonObject = jsonParser
+                    .getJSONFromUrl("http://api.androidhive.info/game/game_stats.json");
+            String json = "";
+            if(jsonObject!=null)
+                json=jsonObject.toString();
 
             Log.e("Response: ", "> " + json);
 

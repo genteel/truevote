@@ -2,8 +2,10 @@ package co.afrolabs.truevotenaija;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.telephony.TelephonyManager;
 import android.util.Log;
 import android.view.Menu;
 import android.view.View;
@@ -18,7 +20,6 @@ import co.afrolabs.truevotenaija.data.Contestant;
 
 
 public class Main extends Activity {
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -59,7 +60,7 @@ public class Main extends Activity {
 
     private ArrayList<Contestant> getListData() {
         ArrayList<Contestant> results = new ArrayList<Contestant>();
-        Contestant newsData = new Contestant(R.drawable.gej,"Goodluck Jonathan (PDP)", "PDP");
+        Contestant newsData = new Contestant(R.drawable.gejcool,"Goodluck Jonathan (PDP)", "PDP");
         results.add(newsData);
 
         newsData = new Contestant(R.drawable.buhari,"Muhammadu Buhari (APC)", "APC");

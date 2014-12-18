@@ -15,14 +15,18 @@
             android:layout_width="115dp"
             android:layout_height="115dp"
             android:id="@+id/imageView"
-            android:src="@drawable/gej" />
+            android:src="@drawable/gejcool"
+            android:contentDescription="@string/gejheadshot" />
 
         <TextView
             android:layout_width="match_parent"
-            android:layout_height="121dp"
+            android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:text="Small Text"
-            android:id="@+id/nameView" />
+            android:id="@+id/nameView"
+            android:layout_gravity="center"
+            android:textSize="18sp"
+            android:textStyle="bold" />
 
     </LinearLayout>
 </LinearLayout>
