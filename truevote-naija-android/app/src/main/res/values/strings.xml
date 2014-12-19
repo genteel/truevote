@@ -14,5 +14,6 @@
     <string name="yes">Yes</string>
     <string name="no">No</string>
     <string name="gejheadshot">goodluck headshot</string>
+    <string name="title_activity_result">Result</string>
 
 </resources>
