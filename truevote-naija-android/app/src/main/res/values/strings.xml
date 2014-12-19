@@ -15,5 +15,6 @@
     <string name="no">No</string>
     <string name="gejheadshot">goodluck headshot</string>
     <string name="truevotelogodesc">true vote logo</string>
+    <string name="title_activity_result">Result</string>
 
 </resources>
