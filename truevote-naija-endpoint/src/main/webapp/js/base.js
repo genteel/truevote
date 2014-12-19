@@ -24,7 +24,8 @@ google.devrel.samples.hello = google.devrel.samples.hello || {};
  * @type {string}
  */
 google.devrel.samples.hello.CLIENT_ID =
-    'replace this with your web client ID';
+  //  'replace this with your web client ID';
+ '593053426366-vbivt8qsdsa00kduutcf14rrn0vljhc8.apps.googleusercontent.com';
 
 /**
  * Scopes used by the application.
@@ -110,7 +111,7 @@ google.devrel.samples.hello.listGreeting = function() {
   gapi.client.helloworld.greetings.listGreeting().execute(
       function(resp) {
         if (!resp.code) {
-          resp.items = resp.items || [];
+          resp.i0tems = resp.items || [];
           for (var i = 0; i < resp.items.length; i++) {
             google.devrel.samples.hello.print(resp.items[i]);
           }
