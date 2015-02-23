@@ -12,7 +12,14 @@ import java.util.Map;
 import javax.persistence.Embedded;
 import javax.persistence.Transient;
 
+import co.afrolabs.truevote.dto.Candidate;
+import co.afrolabs.truevote.dto.CandidateManifesto;
+import co.afrolabs.truevote.dto.Constituency;
+import co.afrolabs.truevote.dto.LocalGovernmentArea;
+import co.afrolabs.truevote.dto.MyChoice;
 import co.afrolabs.truevote.dto.PoliticalParty;
+import co.afrolabs.truevote.dto.SenatorialDistrict;
+import co.afrolabs.truevote.dto.State;
 import co.afrolabs.truevote.dto.UserData;
 import co.afrolabs.truevote.exception.TooManyResultsException;
 
@@ -34,7 +41,13 @@ public class ObjectifyDao<T> extends DAOBase
 	{
 		ObjectifyService.register(PoliticalParty.class);
 		ObjectifyService.register(UserData.class);
-	
+		ObjectifyService.register(Candidate.class);
+		ObjectifyService.register(CandidateManifesto.class);
+		ObjectifyService.register(Constituency.class);
+		ObjectifyService.register(LocalGovernmentArea.class);
+		ObjectifyService.register(MyChoice.class);
+		ObjectifyService.register(SenatorialDistrict.class);
+		ObjectifyService.register(State.class);
 	}
 
 	protected Class<T> clazz;

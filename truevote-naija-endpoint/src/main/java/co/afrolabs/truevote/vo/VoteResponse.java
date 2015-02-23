@@ -1,7 +1,9 @@
 package co.afrolabs.truevote.vo;
 
+import co.afrolabs.truevote.constant.ServerConstants;
+
 public class VoteResponse {
-	private String responseCode;
+	private String responseCode= ServerConstants.RESPONSE_RESQUEST_ERROR;
 	private String message;
 	public String getResponseCode() {
 		return responseCode;

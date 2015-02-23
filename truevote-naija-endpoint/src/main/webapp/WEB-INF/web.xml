@@ -4,9 +4,9 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.5"
 	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
 
-	 <listener>
+	<listener>
 		<listener-class>co.afrolabs.truevote.util.WebContextListener</listener-class>
-	</listener> 
+	</listener>
 	<servlet>
 		<servlet-name>SystemServiceServlet</servlet-name>
 		<servlet-class>com.google.api.server.spi.SystemServiceServlet</servlet-class>
@@ -14,14 +14,21 @@
 			<param-name>services</param-name>
 			<param-value>co.afrolabs.truevote.appengineendpoint.Greetings,co.afrolabs.truevote.appengineendpoint.VoteServiceEndPoint</param-value>
 		</init-param>
-		<init-param>
-			<param-name>services</param-name>
-			<param-value>co.afrolabs.truevote.appengineendpoint.VoteServiceEndPoint</param-value>
-		</init-param>
+		<!--<init-param> <param-name>services</param-name> <param-value>co.afrolabs.truevote.appengineendpoint.VoteServiceEndPoint</param-value> 
+			</init-param> -->
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>SystemServiceServlet</servlet-name>
 		<url-pattern>/_ah/spi/*</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>UploadServlet</servlet-name>
+		<servlet-class>co.afrolabs.truevote.servlet.FileUploadServlet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>UploadServlet</servlet-name>
+		<url-pattern>/UploadServlet</url-pattern>
 	</servlet-mapping>
 	<welcome-file-list>
 		<welcome-file>index.html</welcome-file>

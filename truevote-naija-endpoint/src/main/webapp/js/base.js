@@ -1,4 +1,5 @@
 
+
 /**
  * @fileoverview
  * Provides methods for the Hello Endpoints sample UI and interaction with the
@@ -72,6 +73,7 @@ google.devrel.samples.hello.auth = function() {
     google.devrel.samples.hello.signin(false,
         google.devrel.samples.hello.userAuthed);
   } else {
+	  /// after clicking on sign out
     google.devrel.samples.hello.signedIn = false;
     document.getElementById('signinButton').innerHTML = 'Sign in';
     document.getElementById('authedGreeting').disabled = true;
@@ -89,52 +91,6 @@ google.devrel.samples.hello.print = function(greeting) {
   document.getElementById('outputLog').appendChild(element);
 };
 
-/**
- * Gets a numbered greeting via the API.
- * @param {string} id ID of the greeting.
- */
-google.devrel.samples.hello.getGreeting = function(id) {
-  gapi.client.helloworld.greetings.getGreeting({'id': id}).execute(
-      function(resp) {
-        if (!resp.code) {
-          google.devrel.samples.hello.print(resp);
-        } else {
-          window.alert(resp.message);
-        }
-      });
-};
-
-/**
- * Lists greetings via the API.
- */
-google.devrel.samples.hello.listGreeting = function() {
-  gapi.client.helloworld.greetings.listGreeting().execute(
-      function(resp) {
-        if (!resp.code) {
-          resp.i0tems = resp.items || [];
-          for (var i = 0; i < resp.items.length; i++) {
-            google.devrel.samples.hello.print(resp.items[i]);
-          }
-        }
-      });
-};
-
-/**
- * Gets a greeting a specified number of times.
- * @param {string} greeting Greeting to repeat.
- * @param {string} count Number of times to repeat it.
- */
-google.devrel.samples.hello.multiplyGreeting = function(
-    greeting, times) {
-  gapi.client.helloworld.greetings.multiply({
-      'message': greeting,
-      'times': times
-    }).execute(function(resp) {
-      if (!resp.code) {
-        google.devrel.samples.hello.print(resp);
-      }
-    });
-};
 
 /**
  * Greets the current user via the API.
@@ -150,25 +106,9 @@ google.devrel.samples.hello.authedGreeting = function(id) {
  * Enables the button callbacks in the UI.
  */
 google.devrel.samples.hello.enableButtons = function() {
-  document.getElementById('getGreeting').onclick = function() {
-    google.devrel.samples.hello.getGreeting(
-        document.getElementById('id').value);
-  }
-
-  document.getElementById('listGreeting').onclick = function() {
-    google.devrel.samples.hello.listGreeting();
-  }
-
-  document.getElementById('multiplyGreetings').onclick = function() {
-    google.devrel.samples.hello.multiplyGreeting(
-        document.getElementById('greeting').value,
-        document.getElementById('count').value);
-  }
-
-  document.getElementById('authedGreeting').onclick = function() {
+ document.getElementById('authedGreeting').onclick = function() {
     google.devrel.samples.hello.authedGreeting();
   }
-  
   document.getElementById('signinButton').onclick = function() {
     google.devrel.samples.hello.auth();
   }

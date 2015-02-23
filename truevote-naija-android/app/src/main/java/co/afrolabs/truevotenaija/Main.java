@@ -11,6 +11,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -48,6 +49,13 @@ public class Main extends Activity {
                 }).show();
             }
 
+        });
+
+        Button viewResultButton = (Button)findViewById(R.id.button2);
+        viewResultButton.setOnClickListener(new Button.OnClickListener() {
+            public void onClick(View v) {
+                //Do stuff here
+            }
         });
     }
 

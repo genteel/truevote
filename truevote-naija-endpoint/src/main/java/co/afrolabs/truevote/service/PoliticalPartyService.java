@@ -21,7 +21,6 @@ public class PoliticalPartyService {
 		//ofy().save().entity(politicalParty).now();
 	}
 
-	@SuppressWarnings("unchecked")
 	public List<PoliticalParty> getAllParties() {
 	PoliticalPartyDAO politicalPartyDAO = new PoliticalPartyDAO();
 		return politicalPartyDAO.listAll();
@@ -34,16 +33,7 @@ public class PoliticalPartyService {
 		result = politicalPartyDAO.getByProperty("name", partyName);
 		return result;
 }
-	public long getTotalVotes(){
-		 UserDataDAO userDataDAO = new UserDataDAO();
-		  
-		 return userDataDAO.ofy().query(UserData.class).filter("voted", true).count();
-	 }
+	
 	 
-	 public long getPartyTotalVotes(String partyName) throws Exception{
-		 PoliticalPartyDAO politicalPartyDAO = new PoliticalPartyDAO();
-		
-		 UserDataDAO userDataDAO = new UserDataDAO();
-		 return  userDataDAO.ofy().query(UserData.class).filter("votedParty",politicalPartyDAO.getKey(findByName(partyName).getId())).filter("voted", true).count();
-	 }
+	
 }

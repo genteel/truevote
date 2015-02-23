@@ -2,35 +2,30 @@ package co.afrolabs.truevote.dto;
 
 import java.io.Serializable;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-import com.google.api.server.spi.config.ApiTransformer;
 import com.googlecode.objectify.Key;
+import com.googlecode.objectify.annotation.Entity;
 
 @Entity
 public class UserData implements Serializable{
 
 	/**
-	 * 
+	 *  
 	 */
 	private static final long serialVersionUID = 1L;
 	@Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 	private String phoneNumber;
 	private String imeiNumber;
 	private String userLongitude;
 	private String userLatitude;
-	 //@ApiTransformer(value = null)
-	private Key<PoliticalParty> votedParty;
-	
 	private boolean voted = false;
-	
+	private String emailAddress;
+	private String facebookId;
+	private String googleId;
 	private String others;
-	
+	private String emailSource;
 	
 	public long getId() {
 		return id;
@@ -75,11 +70,31 @@ public class UserData implements Serializable{
 	public void setVoted(boolean voted) {
 		this.voted = voted;
 	}
-	public Key<PoliticalParty> getVotedParty() {
-		return votedParty;
+	
+	public String getEmailAddress() {
+		return emailAddress;
 	}
-	public void setVotedParty(Key<PoliticalParty> votedParty) {
-		this.votedParty = votedParty;
+	public void setEmailAddress(String emailAddress) {
+		this.emailAddress = emailAddress;
+	}
+	public String getFacebookId() {
+		return facebookId;
+	}
+	public void setFacebookId(String facebookId) {
+		this.facebookId = facebookId;
+	}
+	public String getGoogleId() {
+		return googleId;
+	}
+	public void setGoogleId(String googleId) {
+		this.googleId = googleId;
+	}
+	
+	public String getEmailSource() {
+		return emailSource;
+	}
+	public void setEmailSource(String emailSource) {
+		this.emailSource = emailSource;
 	}
 	
 }

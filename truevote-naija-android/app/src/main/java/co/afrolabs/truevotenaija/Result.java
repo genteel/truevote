@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.content.Context;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -13,6 +12,8 @@ import com.appspot.afrolabs_truevote1.trueVoteService.TrueVoteService;
 import com.appspot.afrolabs_truevote1.trueVoteService.model.RequestObject;
 import com.appspot.afrolabs_truevote1.trueVoteService.model.VoteStatisticsResponse;
 import com.google.api.client.extensions.android.http.AndroidHttp;
+import com.google.api.client.http.HttpRequest;
+import com.google.api.client.http.HttpRequestInitializer;
 import com.google.api.client.json.gson.GsonFactory;
 
 import java.io.IOException;
@@ -21,13 +22,21 @@ import java.io.IOException;
 public class Result extends Activity {
 
     TrueVoteService.Builder builder = new TrueVoteService.Builder(
-            AndroidHttp.newCompatibleTransport(), new GsonFactory(), null);
+            AndroidHttp.newCompatibleTransport(),
+            new GsonFactory(), new HttpRequestInitializer() {
+                public void initialize(HttpRequest httpRequest) {
+                    httpRequest.setConnectTimeout(20 * 1000);
+                    httpRequest.setReadTimeout(10 * 1000);
+                }
+            });
+
     TrueVoteService service = builder.build();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.result);
+
     }
 
 
