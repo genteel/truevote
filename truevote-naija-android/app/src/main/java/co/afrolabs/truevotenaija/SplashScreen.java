@@ -65,6 +65,10 @@ public class SplashScreen extends Activity {
             JsonParser jsonParser = new JsonParser();
             JSONObject jsonObject = jsonParser
                     .getJSONFromUrl("http://api.androidhive.info/game/game_stats.json");
+            while(jsonObject==null){
+                jsonObject = jsonParser
+                        .getJSONFromUrl("http://api.androidhive.info/game/game_stats.json");
+            }
             String json = "";
             if(jsonObject!=null)
                 json=jsonObject.toString();
